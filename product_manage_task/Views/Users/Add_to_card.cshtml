@@ -1,0 +1,87 @@
+﻿@model IEnumerable<product_manage_task.EF.Product>
+
+@{
+    ViewBag.Title = "My card ";
+
+}
+
+<h2>My Card</h2>
+<h3>Hello @Session["user"]</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category_id)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category_id)
+            </td>
+
+            <td>
+               <div class="btn btn-secondary">@Html.ActionLink("Order", "Order", new { id = item.pid }) |</div>
+               <div class="btn btn-secondary">@Html.ActionLink("Category", "Category") |</div>
+
+          </td>
+        </tr>
+    }
+
+</table>
+
+@if (Session["msg"] != null)
+{
+    <h1> @Session["msg"]</h1>
+    <div class="btn btn-secondary">@Html.ActionLink("Category", "Category")</div>
+}
+
+<form action="../order_all" method="post">
+    <input type="submit" class="btn btn-primary" value="OrderAll" />
+</form>
+
+
+

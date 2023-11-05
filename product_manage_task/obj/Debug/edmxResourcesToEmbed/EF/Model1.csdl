@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="product_management_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="product_quantity_inside_cat" Type="Int32" />
+    <Property Name="logo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="interst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sign_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Customers" FromRole="Customers" ToRole="Products" />
+    <NavigationProperty Name="Order_table" Relationship="product_management_dbModel.FK_Order_table_Customers" FromRole="Customer" ToRole="Order_table" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Double" />
+    <Property Name="stock" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="category_id" Type="Int32" />
+    <Property Name="cust_id_add_card" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Products_Customers" FromRole="Products" ToRole="Customers" />
+    <NavigationProperty Name="Order_table" Relationship="product_management_dbModel.FK_Order_table_Products" FromRole="Product" ToRole="Order_table" />
+  </EntityType>
+  <Association Name="FK_Products_Categories">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="cust_id_add_card" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="product_management_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Customers" Association="Self.FK_Products_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <EntitySet Name="Order_table" EntityType="product_management_dbModel.Order_table" />
+    <AssociationSet Name="FK_Order_table_Customers" Association="product_management_dbModel.FK_Order_table_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order_table" EntitySet="Order_table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_table_Products" Association="product_management_dbModel.FK_Order_table_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Order_table" EntitySet="Order_table" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Order_table">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" />
+    <Property Name="pid" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="product_management_dbModel.FK_Order_table_Customers" FromRole="Order_table" ToRole="Customer" />
+    <NavigationProperty Name="Product" Relationship="product_management_dbModel.FK_Order_table_Products" FromRole="Order_table" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Order_table_Customers">
+    <End Type="product_management_dbModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="product_management_dbModel.Order_table" Role="Order_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Order_table">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_table_Products">
+    <End Type="product_management_dbModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="product_management_dbModel.Order_table" Role="Order_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="pid" />
+      </Principal>
+      <Dependent Role="Order_table">
+        <PropertyRef Name="pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
