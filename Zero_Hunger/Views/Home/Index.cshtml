@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <button class="btn btn-primary" id="AdminButton">Admin</button>
+
+    <button class="btn btn-primary" id="Employee">Employee</button>
+
+    <button class="btn btn-primary" id="restaurantButton">Restaurant</button>
+</main>
+
+
+
+
+
+<script>
+    document.getElementById("AdminButton").addEventListener("click", function () {
+        window.location.href = "/Login/login?id=1";
+    });
+
+
+    document.getElementById("Employee").addEventListener("click", function () {
+        window.location.href = "/Login/login?id=3";
+    });
+
+
+    document.getElementById("restaurantButton").addEventListener("click", function () {
+        window.location.href = "/Login/login?id=2";
+    });
+</script>

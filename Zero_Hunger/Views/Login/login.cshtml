@@ -1,0 +1,40 @@
+﻿@model Zero_Hunger.EF.Restaurant
+
+
+@{
+    ViewBag.Title = "login";
+}
+
+<h2>login</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+    <form method="post">
+        <input type="hidden" value="@ViewBag.id" name="id" />
+        Username:
+        <input class="form-control" type="text" name="username" placeholder="Enter username" />
+
+        Password:
+        <input class="form-control" type="password" name="password" placeholder="Enter password" /><br />
+
+        <input class="btn btn-primary" type="submit" name="submit" />
+
+    </form>
+
+
+    @if (Session["password"] != null)
+    {
+        <p>@Session["password"]</p>
+        
+    }
+
+
+</body>
+</html>
+
+
