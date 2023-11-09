@@ -133,6 +133,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
+    <Compile Include="DTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\EmployeeDTO.cs" />
+    <Compile Include="DTOs\RequestDTO.cs" />
+    <Compile Include="DTOs\RestaurantDTO.cs" />
     <Compile Include="EF\Admin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
