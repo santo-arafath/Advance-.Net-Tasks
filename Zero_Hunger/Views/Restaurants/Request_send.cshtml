@@ -11,7 +11,7 @@
 
 <style>
     form {
-        padding: 10px 400px;
+        padding: 10px 200px;
     }
 </style>
 
@@ -26,8 +26,8 @@
 
         <label>Food Type</label>
         <input type="text" class="form-control" id="foor_type" name="food_type" placeholder="Enter food type ">
-        @*        <span class="text-danger">@Html.ValidationMessage("name")</span>
-        *@
+               <span class="text-danger">@Html.ValidationMessage("food_type")</span>
+        
     </div>
 
 
@@ -64,8 +64,8 @@
 
         <label>Quantity</label>
         <input type="text" class="form-control" name="quantity" placeholder="Enter Quantity">
-@*        <span class="text-danger">@Html.ValidationMessage("password")</span>
-*@    </div>
+        <span class="text-danger">@Html.ValidationMessage("quantity")</span>
+   </div>
 
 
 
@@ -74,8 +74,8 @@
 
         <label>Max Preservation Time</label>
         <input type="text" class="form-control" id="max_preservation_time" name="max_preservation_time" placeholder="Enter Id">
-@*        <span class="text-danger">@Html.ValidationMessage("id")</span>
-*@
+       <span class="text-danger">@Html.ValidationMessage("max_preservation_time")</span>
+
     </div>
 
 
@@ -88,8 +88,8 @@
             details_food
         </label>
         <input type="text" class="form-control" name="details_food" placeholder="Enter Details">
-@*        <span class="text-danger">@Html.ValidationMessage("email")</span>
-*@
+        <span class="text-danger">@Html.ValidationMessage("details_food")</span>
+
     </div>
 
 
@@ -100,8 +100,8 @@
 
         <label>Date</label>
         <input type="date" class="form-control" id="date" name="date_of_order" value="@ViewBag.now" placeholder="@ViewBag.now" disabled>
-@*        <span class="text-danger">@Html.ValidationMessage("date")</span>
-*@
+      
+
     </div>
 
 
@@ -133,32 +133,7 @@
 
 
 
-@if (Model != null)
-{
-
-
-
-    @*<ul>
-        <li>Name: @Model.name</li>
-        <li>UserId: @Model.userid</li>
-        <li>Password: @Model.password</li>
-        <li>Id: @Model.id</li>
-        <li>Email: @Model.email</li>
-        <li>Date: @Model.date</li>
-
-    </ul>*@
-
-
-
-
-
-}
-
-
-
-
-
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Dashboard")
 </div>
