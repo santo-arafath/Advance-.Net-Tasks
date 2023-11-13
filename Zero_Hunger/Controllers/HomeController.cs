@@ -13,12 +13,6 @@ namespace Zero_Hunger.Controllers
             return View();
         }
 
-        public ActionResult Login()
-        {
-           
-            return View();
-        }
-
       
     }
 }

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Zero_Hunger.Autho;
 using Zero_Hunger.DTOs;
 using Zero_Hunger.EF;
 using static System.Collections.Specialized.BitVector32;
 
 namespace Zero_Hunger.Controllers
 {
+    [Rest_Auth]
     public class RestaurantsController : Controller
     {
         

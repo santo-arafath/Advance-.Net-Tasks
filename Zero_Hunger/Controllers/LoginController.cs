@@ -7,14 +7,19 @@ using Zero_Hunger.EF;
 
 namespace Zero_Hunger.Controllers
 {
+
+    
     public class LoginController : Controller
     {
         
         [HttpGet]
         public ActionResult login()
         {
-
+            if(Request.QueryString["id"]==null)
+            { return RedirectToAction("Index", "Home"); }
             int id = int.Parse(Request.QueryString["id"]);
+
+            
             ViewBag.id = id;
             return View();
         }
@@ -78,7 +83,7 @@ namespace Zero_Hunger.Controllers
                 else
                 {
 
-                    Session["restaurant"] = "Wrong password";
+                    Session["password"] = "Wrong password";
                     return View();
                 }
 
@@ -95,7 +100,7 @@ namespace Zero_Hunger.Controllers
 
                 if (user != null)
                 {
-                    Session["admin"] = username;
+                    Session["employee"] = username;
                     Session["emp_id"] = user.emp_id;
                     return RedirectToAction("Employee_Dashboard", "Employee");
 

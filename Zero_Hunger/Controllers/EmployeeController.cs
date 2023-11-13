@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Zero_Hunger.Autho;
 using Zero_Hunger.DTOs;
 using Zero_Hunger.EF;
 
 namespace Zero_Hunger.Controllers
 {
+    [Employee_Auth]
     public class EmployeeController : Controller
     {
         
