@@ -1,49 +1,124 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Zero Hunger", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "Registration", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
+@*    @Styles.Render("~/Content/css")
+*@
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        .navbar {
+            background-color: #18b797;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            position:fixed;
+            z-index:1000;
+            width:100%;
+            top:0;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            .navbar-nav li {
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+         .nav-link:hover {
+                color: #ffc107;
+          }
+
+        .container {
+            margin-top: 0px;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 15px;
+        }
+
+        .content-container{
+            margin-top:80px;
+            margin-bottom:90px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            bottom: 0;
+            width: 100%;
+            height:200px;
+        }
+    </style>
+@*    @Scripts.Render("~/bundles/modernizr")
+*@</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <div class="brand-container">
+                @Html.ActionLink("Zero Hunger", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("About", "Registration", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
                     @if (Session["log"] != null)
                     {
-
-
-                     
-                   
-                        <li>@Html.ActionLink("SignOut", "SignOut", "Login", new { area = "" }, new { @class = "nav-link" })</li>
-
+                        <li class="nav-item">@Html.ActionLink("Sign Out", "SignOut", "Login", new { area = "" }, new { @class = "nav-link" })</li>
                     }
-
-
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+
+    <div class="content-container">
         @RenderBody()
-        <hr />
-        <footer>
-            <p></p>
-        </footer>
     </div>
+
+    <footer>
+        &copy; 2023 Zero Hunger Foundation. All rights reserved.
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

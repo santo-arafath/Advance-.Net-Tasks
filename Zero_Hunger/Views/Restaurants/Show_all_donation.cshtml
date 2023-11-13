@@ -1,7 +1,4 @@
-﻿@*@model IEnumerable<Zero_Hunger.EF.Request>
-*@
-
-@model IEnumerable<Zero_Hunger.DTOs.RequestDTO>
+﻿@model IEnumerable<Zero_Hunger.DTOs.RequestDTO>
 
 @{
     ViewBag.Title = "Show_all_donation";
@@ -12,53 +9,92 @@
 <p class="btn btn-secondary">
     @Html.ActionLink("Back", "Dashboard")
 </p>
+
+<style>
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    td {
+        background-color: #f9f9f9;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        margin-right: 10px;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+</style>
+
 <table class="table">
     <tr>
+        
         <th>
-            @Html.DisplayNameFor(model => model.req_id)
+            Food Type
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.food_type)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Phone
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone)
+            Quantity
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.quantity)
+            Max Preservation Time
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.max_preservation_time)
+            Location
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.location)
+            Status
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.status)
+            Restaurant ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.rest_id)
+            Colected Employee 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.assigned_employee_id)
+            Details Food
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.details_food)
+            Date of Order
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date_of_order)
-        </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.req_id)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.food_type)
             </td>
@@ -93,11 +129,10 @@
                 @Html.DisplayFor(modelItem => item.date_of_order)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a href="#">Edit</a>
+                <a href="#">Details</a>
+                <a href="#">Delete</a>
             </td>
         </tr>
     }
-
 </table>
