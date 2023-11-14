@@ -41,7 +41,7 @@ namespace Zero_Hunger.Controllers
             string password = fc["password"];
             string id = fc["id"];
 
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
             if(id=="1")
             {
                 var user = (from s in db.Admins

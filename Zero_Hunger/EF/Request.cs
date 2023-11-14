@@ -18,8 +18,8 @@ namespace Zero_Hunger.EF
         public string food_type { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string quantity { get; set; }
-        public string max_preservation_time { get; set; }
+        public Nullable<int> quantity { get; set; }
+        public Nullable<int> max_preservation_time { get; set; }
         public string location { get; set; }
         public string status { get; set; }
         public Nullable<int> rest_id { get; set; }

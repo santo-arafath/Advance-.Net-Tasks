@@ -16,7 +16,7 @@ namespace Zero_Hunger.Controllers
         public ActionResult Employee_Dashboard()
         {
             int emp_id = Convert.ToInt32(Session["emp_id"]);
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
 
             var data =(from s in db.Requests
                        where s.assigned_employee_id == emp_id
@@ -33,7 +33,7 @@ namespace Zero_Hunger.Controllers
 
             int employee_id = Convert.ToInt32(Session["emp_id"]);
 
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
 
 
 
@@ -74,8 +74,8 @@ namespace Zero_Hunger.Controllers
                 food_type = request.food_type,
                 Email = request.Email,
                 Phone = request.Phone,
-                quantity = request.quantity,
-                max_preservation_time = request.max_preservation_time,
+                quantity = (int)request.quantity,
+                max_preservation_time = (int)request.max_preservation_time,
                 location = request.location,
                 status = request.status,
                 rest_id = request.rest_id,

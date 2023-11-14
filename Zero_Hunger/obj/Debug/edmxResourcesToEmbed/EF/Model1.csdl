@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Zero_Hunger_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="employee">
     <Key>
       <PropertyRef Name="emp_id" />
@@ -24,8 +36,8 @@
     <Property Name="food_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="max_preservation_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="max_preservation_time" Type="Int32" />
     <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="rest_id" Type="Int32" />
@@ -49,11 +61,11 @@
     <Property Name="res_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Requests" Relationship="Zero_Hunger_dbModel.FK_Requests_Restaurants" FromRole="Restaurant" ToRole="Request" />
   </EntityType>
-  <EntityContainer Name="Zero_Hunger_dbEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Zero_Hunger_dbEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
     <EntitySet Name="employees" EntityType="Self.employee" />
     <EntitySet Name="Requests" EntityType="Self.Request" />
     <EntitySet Name="Restaurants" EntityType="Self.Restaurant" />
-    <EntitySet Name="Admins" EntityType="Zero_Hunger_dbModel.Admin" />
     <AssociationSet Name="FK_Requests_employees" Association="Zero_Hunger_dbModel.FK_Requests_employees">
       <End Role="employee" EntitySet="employees" />
       <End Role="Request" EntitySet="Requests" />
@@ -63,18 +75,6 @@
       <End Role="Request" EntitySet="Requests" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Admin">
-    <Key>
-      <PropertyRef Name="admin_id" />
-    </Key>
-    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <Association Name="FK_Requests_employees">
     <End Type="Zero_Hunger_dbModel.employee" Role="employee" Multiplicity="0..1" />
     <End Type="Zero_Hunger_dbModel.Request" Role="Request" Multiplicity="*" />

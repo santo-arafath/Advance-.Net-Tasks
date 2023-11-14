@@ -8,12 +8,7 @@ namespace Zero_Hunger.DTOs
 {
     public class RequestDTO
     {
-        public RequestDTO()
-        {
-
-
-        }
-
+       
         
         public int req_id { get; set; }
 
@@ -23,23 +18,30 @@ namespace Zero_Hunger.DTOs
 
 
         [Required(ErrorMessage = "*Provide you email")]
-
-/*        [RegularExpression("^\\@gmail.com$", ErrorMessage = "email format no correct")]
-*/        public string Email { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid email format")]
+        public string Email { get; set; }
 
 
 
         
         public string Phone { get; set; }
 
+
+
         [Required(ErrorMessage = "*Provide Quantity")]
-       
-        public string quantity { get; set; }
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Please enter a valid number.")]
+
+        public int quantity { get; set; }
+
+
 
         [Required(ErrorMessage = "*Provide maximum prevention time")]
-        public string max_preservation_time { get; set; }
+        [RegularExpression("^(2[1-9]|[3-9][0-9]|[1-9][0-9]{2,})$", ErrorMessage = "Number mush be greater than 20 .")]
 
-        [Required(ErrorMessage = "*Provide location")]
+
+        public int max_preservation_time { get; set; }
+
+
         public string location { get; set; }
 
         

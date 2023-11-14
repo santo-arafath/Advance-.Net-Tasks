@@ -28,7 +28,7 @@ namespace Zero_Hunger.Controllers
             
             var us_id = Convert.ToInt32(Session["res_id"]);
 
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
             var data = (from s in db.Requests
                         where s.rest_id == us_id && (s.status == "pendding" || s.status =="Assigned")
                         select s).ToList();
@@ -44,7 +44,7 @@ namespace Zero_Hunger.Controllers
         {
             var us_id = Convert.ToInt32(Session["res_id"]);
 
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
             var data = (from s in db.Requests
                         where s.rest_id == us_id
                         select s).ToList();
@@ -59,14 +59,14 @@ namespace Zero_Hunger.Controllers
         [HttpGet]
         public ActionResult Request_send() {
 
-            ViewBag.now=new DateTime();
+            ViewBag.now= DateTime.Now;
 
             ViewBag.res_idd= Convert.ToInt32(Session["res_id"]);
 
 
             var us_id = Convert.ToInt32(Session["res_id"]);
 
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
             var data = (from s in db.Restaurants
                         where s.restaurants_id == us_id
                         select s).FirstOrDefault();
@@ -80,7 +80,7 @@ namespace Zero_Hunger.Controllers
         [HttpPost]
         public ActionResult Request_send(RequestDTO r)
         {
-            var db=new Zero_Hunger_dbEntities1();
+            var db=new Zero_Hunger_dbEntities2();
 
             var req = ConvertTo(r);
 
@@ -101,8 +101,8 @@ namespace Zero_Hunger.Controllers
                 food_type = request.food_type,
                 Email = request.Email,
                 Phone = request.Phone,
-                quantity = request.quantity,
-                max_preservation_time = request.max_preservation_time,
+                quantity = (int)request.quantity,
+                max_preservation_time = (int)request.max_preservation_time,
                 location = request.location,
                 status = request.status,
                 rest_id = request.rest_id,

@@ -35,8 +35,8 @@
     <Property Name="food_type" Type="varchar" MaxLength="50" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="Phone" Type="varchar" MaxLength="50" />
-    <Property Name="quantity" Type="varchar" MaxLength="50" />
-    <Property Name="max_preservation_time" Type="varchar" MaxLength="50" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="max_preservation_time" Type="int" />
     <Property Name="location" Type="varchar" MaxLength="50" />
     <Property Name="status" Type="varchar" MaxLength="50" />
     <Property Name="rest_id" Type="int" />

@@ -13,12 +13,12 @@ namespace Zero_Hunger.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Zero_Hunger_dbEntities1 : DbContext
+    public partial class Zero_Hunger_dbEntities2 : DbContext
     {
-        public Zero_Hunger_dbEntities1()
-            : base("name=Zero_Hunger_dbEntities1")
+        public Zero_Hunger_dbEntities2()
+            : base("name=Zero_Hunger_dbEntities2")
         {
-            this.Configuration.LazyLoadingEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,9 +26,9 @@ namespace Zero_Hunger.EF
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
-        public virtual DbSet<Admin> Admins { get; set; }
     }
 }

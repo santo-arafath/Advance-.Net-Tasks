@@ -17,7 +17,7 @@ namespace Zero_Hunger.Controllers
         public ActionResult Admin_Dashboard()
         {
             Session["order"] = null;
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
 
             var data_ent = db.Requests.ToList();
 
@@ -29,7 +29,7 @@ namespace Zero_Hunger.Controllers
         public ActionResult show_all()
         {
 
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
 
             var data_ent = db.employees.ToList();
 
@@ -46,7 +46,7 @@ namespace Zero_Hunger.Controllers
         public ActionResult Edit(int id)
         {
             Session["order"] = id;
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
 
             var data = db.employees.ToList();
 
@@ -59,7 +59,7 @@ namespace Zero_Hunger.Controllers
         {
             int order_id = Convert.ToInt32(Session["order"]);
 
-            var db = new Zero_Hunger_dbEntities1();
+            var db = new Zero_Hunger_dbEntities2();
 
             var result = db.employees.SingleOrDefault(b => b.emp_id == id);
 
@@ -168,8 +168,8 @@ namespace Zero_Hunger.Controllers
                 food_type = request.food_type,
                 Email = request.Email,
                 Phone = request.Phone,
-                quantity = request.quantity,
-                max_preservation_time = request.max_preservation_time,
+                quantity = (int)request.quantity,
+                max_preservation_time = (int)request.max_preservation_time,
                 location = request.location,
                 status = request.status,
                 rest_id = request.rest_id,

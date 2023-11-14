@@ -4,7 +4,7 @@
     ViewBag.Title = "Request_send";
 }
 
-<h2>Request_send</h2>
+<h2>Send Request</h2>
 
 <style>
     form {
@@ -55,8 +55,17 @@
 
 <form class="border" action="" method="post">
     <div class="form-group">
-        <label>Food Type</label>
-        <input type="text" class="form-control" id="foor_type" name="food_type" placeholder="Enter food type">
+        <label>Food Type:</label>
+
+        <select class="form-control" id="foor_type" name="foor_type" required>
+            <option selected disabled value="">Select</option>
+            <option value="pizza">Pizza</option>
+            <option value="burger">Burger</option>
+            <option value="pasta">Pasta</option>
+            <option value="sushi">Sushi</option>
+            <option value="salad">Salad</option>
+        </select>
+
         <span class="text-danger">@Html.ValidationMessage("food_type")</span>
     </div>
 
@@ -70,31 +79,32 @@
     </div>
 
     <div class="form-group">
-        <label>Quantity</label>
-        <input type="text" class="form-control" name="quantity" placeholder="Enter Quantity">
+        <label>Quantity:</label>
+        <input type="number" class="form-control" name="quantity" placeholder="Enter Quantity" required>
         <span class="text-danger">@Html.ValidationMessage("quantity")</span>
     </div>
 
     <div class="form-group">
-        <label>Max Preservation Time</label>
-        <input type="text" class="form-control" id="max_preservation_time" name="max_preservation_time" placeholder="Enter Max Preservation Time">
+        <label>Max Prevention Time (minutes):</label>
+        <input type="number" class="form-control" min="0" step="1" id="max_preservation_time" name="max_preservation_time" placeholder="Enter Max Preservation Time" required>
         <span class="text-danger">@Html.ValidationMessage("max_preservation_time")</span>
     </div>
 
     <div class="form-group">
         <label>Details Food</label>
-        <input type="text" class="form-control" name="details_food" placeholder="Enter Details">
+        <input type="text" class="form-control" name="details_food" placeholder="Enter Details" required>
         <span class="text-danger">@Html.ValidationMessage("details_food")</span>
     </div>
 
     <div class="form-group">
         <label>Date</label>
-        <input type="date" class="form-control" id="date" name="date_of_order" value="@ViewBag.now" disabled>
+        <input type="hidden" class="form-control" id="date" name="date_of_order" value="@ViewBag.now">
+        <p>Date time:@ViewBag.now</p>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<div class="back-link">
+<div class="">
     @Html.ActionLink("Back to List", "Dashboard")
 </div>
