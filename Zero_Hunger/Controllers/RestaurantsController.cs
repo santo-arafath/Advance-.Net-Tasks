@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -71,18 +72,36 @@ namespace Zero_Hunger.Controllers
                         where s.restaurants_id == us_id
                         select s).FirstOrDefault();
 
-            var list = ConvertTo(data);
+            //var list = ConvertTo(data);
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Restaurant,RestaurantDTO>();
+
+            });
+
+            var mapper =new Mapper(config);
+            var list = mapper.Map<RestaurantDTO>(data);
+
             return View(list);
 
         }
 
 
         [HttpPost]
-        public ActionResult Request_send(RequestDTO r)
+        public ActionResult Request_send(RequestDTO request)
         {
             var db=new Zero_Hunger_dbEntities2();
 
-            var req = ConvertTo(r);
+            //var req = ConvertTo(request);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<RequestDTO, Request>();
+
+            });
+
+            var mapper = new Mapper(config);
+            var req = mapper.Map<Request>(request);
 
             db.Requests.Add(req);
             db.SaveChanges();

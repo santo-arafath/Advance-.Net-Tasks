@@ -235,3 +235,5 @@ E:\c#\cll\Advance-.Net-Tasks\Zero_Hunger\bin\System.Net.Http.Formatting.xml
 E:\c#\cll\Advance-.Net-Tasks\Zero_Hunger\bin\System.ValueTuple.xml
 E:\c#\cll\Advance-.Net-Tasks\Zero_Hunger\bin\Umbraco.Core.pdb
 E:\c#\cll\Advance-.Net-Tasks\Zero_Hunger\bin\Umbraco.Core.xml
+E:\c#\cll\Advance-.Net-Tasks\Zero_Hunger\bin\AutoMapper.dll
+E:\c#\cll\Advance-.Net-Tasks\Zero_Hunger\bin\AutoMapper.xml

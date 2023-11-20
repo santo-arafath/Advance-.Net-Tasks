@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Controllers",
+    "\\DTOs",
     "\\Views",
     "\\Views\\Home",
     "\\Views\\Restaurants",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Views\\Shared\\_Layout.cshtml",
+  "SelectedNode": "\\DTOs\\RequestDTO.cs",
   "PreviewInSolutionExplorer": false
 }

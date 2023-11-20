@@ -36,6 +36,7 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        margin-bottom:10px;
     }
 
         .btn-primary:hover {
@@ -51,13 +52,27 @@
         display: block;
         text-align: center;
     }
+
+    .slct{
+        width:49.7vw;
+        padding:12px;
+    }
+
+    .slctq, .slctm {
+        width: 48vw;
+        padding: 11px;
+    }
+
+    .border{
+        border:2px solid blue;
+    }
 </style>
 
 <form class="border" action="" method="post">
     <div class="form-group">
         <label>Food Type:</label>
 
-        <select class="form-control" id="foor_type" name="foor_type" required>
+        <select class="form-control slct" id="foor_type" name="foor_type" required>
             <option selected disabled value="">Select</option>
             <option value="pizza">Pizza</option>
             <option value="burger">Burger</option>
@@ -80,13 +95,13 @@
 
     <div class="form-group">
         <label>Quantity:</label>
-        <input type="number" class="form-control" name="quantity" placeholder="Enter Quantity" required>
+        <input type="number" class="form-control slctq" name="quantity" placeholder="Enter Quantity" required>
         <span class="text-danger">@Html.ValidationMessage("quantity")</span>
     </div>
 
     <div class="form-group">
         <label>Max Prevention Time (minutes):</label>
-        <input type="number" class="form-control" min="0" step="1" id="max_preservation_time" name="max_preservation_time" placeholder="Enter Max Preservation Time" required>
+        <input type="number" class="form-control slctm" min="0" step="1" id="max_preservation_time" name="max_preservation_time" placeholder="Enter Max Preservation Time" required>
         <span class="text-danger">@Html.ValidationMessage("max_preservation_time")</span>
     </div>
 
@@ -103,8 +118,10 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+    <br />
+    <div class="btn btn-info">
+        @Html.ActionLink("Back to List", "Dashboard")
+    </div>
 </form>
 
-<div class="">
-    @Html.ActionLink("Back to List", "Dashboard")
-</div>
+
