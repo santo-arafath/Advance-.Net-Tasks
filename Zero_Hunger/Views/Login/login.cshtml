@@ -23,7 +23,7 @@
         <h2>Login</h2>
 
         <form method="post" action="">
-            <input type="hidden" value="@ViewBag.id" name="id" /> 
+            <input type="hidden" value="@ViewBag.id" name="id" />
             <label for="username">Username:</label>
             <input class="form-control" type="text" name="username" id="username" placeholder="Enter username" required />
 
@@ -33,15 +33,16 @@
             <br />
 
             <input type="submit" value="Login" />
+            @if (Session["password"] != null)
+            {
+                <p  style="color:red;">@Session["password"]</p>
+            }
 
-             <a href="~/Home/Index">Back to home</a>
+            <a href="~/Home/Index">Back to home</a>
         </form>
     </div>
 </body>
 </html>
 
 
-@if (Session["password"] != null)
-{
-    <p>@Session["password"]</p>
-}
+

@@ -48,6 +48,11 @@
     .no-data {
         font-style: italic;
     }
+
+
+
+
+
 </style>
 
 <div class="dashboard-container">
@@ -147,7 +152,8 @@
                                 @Html.DisplayFor(modelItem => item.date_of_order)
                             </td>
                             <td>
-                                @Html.ActionLink("Collect", "Collect", new { id = item.req_id })
+
+                                @Html.ActionLink("Collect", "Collect", new { id = item.req_id }, new {@class="buttongreen"})
 
 
                             </td>
