@@ -26,6 +26,19 @@ namespace Zero_Hunger.Controllers
             return View(list);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var db = new Zero_Hunger_dbEntities2();
+            var request = db.Requests.SingleOrDefault(b => b.req_id == id);
+
+            if (request != null)
+            {
+                db.Requests.Remove(request);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Employee_Dashboard");
+        }
 
 
         public ActionResult Collect(int id)

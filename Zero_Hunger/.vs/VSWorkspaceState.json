@@ -3,11 +3,12 @@
     "",
     "\\Controllers",
     "\\DTOs",
+    "\\EF",
     "\\Views",
     "\\Views\\Home",
     "\\Views\\Restaurants",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\DTOs\\RequestDTO.cs",
+  "SelectedNode": "\\Views\\Restaurants\\Request_send.cshtml",
   "PreviewInSolutionExplorer": false
 }

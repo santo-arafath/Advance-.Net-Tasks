@@ -101,7 +101,7 @@
 
             @foreach (var item in Model)
             {
-                if (item.status == "pendding")
+                if (item.status == "pending")
                 {
                     <tr>
                         <td>
@@ -141,9 +141,9 @@
                             @Html.DisplayFor(modelItem => item.date_of_order)
                         </td>
                         <td>
-                            @Html.ActionLink("assign", "Edit", new { id = item.req_id }) |
+                            @Html.ActionLink("assign", "Edit", new { id = item.req_id }, new { @class = "btn btn-danger btn-sm" }) |
 
-                            @Html.ActionLink("Delete", "Delete", new { id = item.req_id })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.req_id }, new { @class = "btn btn-danger btn-sm" })
                         </td>
                     </tr>
 
@@ -247,7 +247,7 @@
                         </td>
                         <td>
 
-                            @Html.ActionLink("Delete", "Delete", new { id = item.req_id })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.req_id }, new { @class = "btn btn-danger btn-sm" })
                         </td>
                     </tr>
 

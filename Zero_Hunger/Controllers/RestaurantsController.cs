@@ -31,7 +31,7 @@ namespace Zero_Hunger.Controllers
 
             var db = new Zero_Hunger_dbEntities2();
             var data = (from s in db.Requests
-                        where s.rest_id == us_id && (s.status == "pendding" || s.status =="Assigned")
+                        where s.rest_id == us_id && (s.status == "pending" || s.status =="Assigned")
                         select s).ToList();
 
             var list = ConvertTo(data);
@@ -72,16 +72,16 @@ namespace Zero_Hunger.Controllers
                         where s.restaurants_id == us_id
                         select s).FirstOrDefault();
 
-            //var list = ConvertTo(data);
+            var list = ConvertTo(data);
 
-            var config = new MapperConfiguration(cfg =>
+            /*var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Restaurant,RestaurantDTO>();
 
             });
 
             var mapper =new Mapper(config);
-            var list = mapper.Map<RestaurantDTO>(data);
+            var list = mapper.Map<RestaurantDTO>(data);*/
 
             return View(list);
 
@@ -93,8 +93,8 @@ namespace Zero_Hunger.Controllers
         {
             var db=new Zero_Hunger_dbEntities2();
 
-            //var req = ConvertTo(request);
-            var config = new MapperConfiguration(cfg =>
+            var req = ConvertTo(request);
+           /* var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<RequestDTO, Request>();
 
@@ -102,12 +102,43 @@ namespace Zero_Hunger.Controllers
 
             var mapper = new Mapper(config);
             var req = mapper.Map<Request>(request);
-
+*/
             db.Requests.Add(req);
             db.SaveChanges();
 
             return RedirectToAction("Dashboard");
 
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            var db = new Zero_Hunger_dbEntities2();
+
+            var request = db.Requests.SingleOrDefault(b => b.req_id == id);
+
+            if (request != null)
+            {
+                db.Requests.Remove(request);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Dashboard");
+        }
+
+        public ActionResult Delete_all_don(int id)
+        {
+            var db = new Zero_Hunger_dbEntities2();
+
+            var request = db.Requests.SingleOrDefault(b => b.req_id == id);
+
+            if (request != null)
+            {
+                db.Requests.Remove(request);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Show_all_donation");
         }
 
 

@@ -106,9 +106,9 @@
 
                     <td>@Html.DisplayFor(modelItem => item.date_of_order)</td>
                     <td>
-                        <a href="#">Edit</a>
-                        <a href="#">Details</a>
-                        <a href="#">Delete</a>
+
+                        @Html.ActionLink("Delete", "Delete", new { id = item.req_id }, new { @class = "btn btn-danger btn-sm" })
+
                     </td>
                 </tr>
             }
