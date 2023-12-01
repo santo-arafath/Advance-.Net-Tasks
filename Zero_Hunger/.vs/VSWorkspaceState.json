@@ -5,10 +5,11 @@
     "\\DTOs",
     "\\EF",
     "\\Views",
+    "\\Views\\Employee",
     "\\Views\\Home",
     "\\Views\\Restaurants",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Views\\Restaurants\\Request_send.cshtml",
+  "SelectedNode": "\\Views\\Employee\\Employee_Dashboard.cshtml",
   "PreviewInSolutionExplorer": false
 }

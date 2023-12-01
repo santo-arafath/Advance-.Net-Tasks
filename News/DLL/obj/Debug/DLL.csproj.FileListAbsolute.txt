@@ -1,0 +1,6 @@
+E:\c#\cll\Advance-.Net-Tasks\News\DLL\bin\Debug\DLL.dll
+E:\c#\cll\Advance-.Net-Tasks\News\DLL\bin\Debug\DLL.pdb
+E:\c#\cll\Advance-.Net-Tasks\News\DLL\obj\Debug\DLL.csproj.AssemblyReference.cache
+E:\c#\cll\Advance-.Net-Tasks\News\DLL\obj\Debug\DLL.csproj.CoreCompileInputs.cache
+E:\c#\cll\Advance-.Net-Tasks\News\DLL\obj\Debug\DLL.dll
+E:\c#\cll\Advance-.Net-Tasks\News\DLL\obj\Debug\DLL.pdb

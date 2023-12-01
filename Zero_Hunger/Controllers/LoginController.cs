@@ -28,6 +28,7 @@ namespace Zero_Hunger.Controllers
         {
             Session.Clear();
             Session.Abandon();
+            
 
             return RedirectToAction("Index", "Home");
         }

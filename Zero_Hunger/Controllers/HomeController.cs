@@ -10,6 +10,7 @@ namespace Zero_Hunger.Controllers
     {
         public ActionResult Index()
         {
+            Session["password"] = null;
             return View();
         }
 

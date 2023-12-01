@@ -1,0 +1,11 @@
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\bin\Debug\BLL.dll
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\bin\Debug\BLL.pdb
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\bin\Debug\DLL.dll
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\bin\Debug\DLL.pdb
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\obj\Debug\BLL.dll
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\obj\Debug\BLL.pdb
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\bin\Debug\AutoMapper.dll
+E:\c#\cll\Advance-.Net-Tasks\News\BLL\bin\Debug\AutoMapper.xml
